@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdk 33
-
+    namespace = "com.hossain_ehs.multimodule_example"
     defaultConfig {
         minSdk 27
         targetSdk 33
@@ -21,7 +21,6 @@ android {
     }
     compileOptions {
         coreLibraryDesugaringEnabled true
-
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
