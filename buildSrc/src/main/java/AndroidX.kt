@@ -4,4 +4,7 @@ object AndroidX {
 
     private const val appCompatVersion = "1.6.1"
     const val appCompat = "androidx.appcompat:appcompat:$appCompatVersion"
+
+    private const val constraintlayoutVersion = "2.1.4"
+    const val constraintlayout ="androidx.constraintlayout:constraintlayout:$constraintlayoutVersion"
 }
