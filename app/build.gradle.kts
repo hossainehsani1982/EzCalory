@@ -38,10 +38,13 @@ dependencies {
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    implementation(project(":core"))
-    implementation(project(":onboarding:onboarding_domain"))
-    implementation(project(":onboarding:onboarding_presentation"))
-
+    implementation(project(Modules.core))
+    //implementation(project(Modules.coreUi))
+    implementation(project(Modules.onboardingPresentation))
+    implementation(project(Modules.onboardingDomain))
+    implementation(project(Modules.trackerPresentation))
+    implementation(project(Modules.trackerDomain))
+    implementation(project(Modules.trackerData))
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

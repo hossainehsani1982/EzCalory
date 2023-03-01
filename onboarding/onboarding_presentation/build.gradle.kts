@@ -10,6 +10,7 @@ android {
 }
 
 dependencies {
-    "implementation"(project(":core"))
-    "implementation"(project(":onboarding:onboarding_domain"))
+    "implementation"(project(Modules.core))
+    "implementation"(project(Modules.onboardingDomain))
+
 }
