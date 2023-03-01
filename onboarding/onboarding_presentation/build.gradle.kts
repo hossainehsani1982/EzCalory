@@ -6,9 +6,10 @@ apply {
 }
 
 android {
-    namespace = "com.hossain_ehs.onboarding_domain"
+    namespace = "com.hossain_ehs.onboarding_presentation"
 }
 
 dependencies {
     "implementation"(project(":core"))
+    "implementation"(project(":onboarding:onboarding_domain"))
 }
