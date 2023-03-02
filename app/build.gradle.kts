@@ -1,17 +1,19 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("dagger.hilt.android.plugin")
+    kotlin("kapt")
 }
 
 android {
-    compileSdk = 33
+    compileSdk = ProjectConfig.compileSdk
     namespace = "com.hossain_ehs.multimodule_example"
     defaultConfig {
-        applicationId = "com.hossain_ehs.multimodule_example"
-        minSdk = 27
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ProjectConfig.appId
+        minSdk = ProjectConfig.minSdk
+        targetSdk = ProjectConfig.targetSdk
+        versionCode = ProjectConfig.versionCode
+        versionName = ProjectConfig.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -46,6 +48,10 @@ dependencies {
     implementation(Google.material)
     implementation(AndroidX.constraintlayout)
 
+    //Coil
+    implementation(Coil.coilCompose)
+
+
     //compose
     implementation(Compose.compiler)
     implementation(Compose.ui)
@@ -54,16 +60,60 @@ dependencies {
     implementation(Compose.runtime)
     implementation(Compose.activityCompose)
 
+    //Dagger
+    implementation(DaggerHilt.hiltAndroid)
+    kapt(DaggerHilt.hiltCompiler)
 
+
+    //Room
+    kapt(Room.roomCompiler)
+    implementation(Room.roomKtx)
+    implementation(Room.roomRuntime)
+
+    //Navigation
+    implementation(AndroidX.navigationFragment)
+    implementation(AndroidX.navigationUi)
+
+    //lifecycle
+    implementation(AndroidX.lifecycleProcess)
+    implementation(AndroidX.lifecycleViewModelStat)
+    implementation(AndroidX.lifecycleService)
+    implementation(AndroidX.lifecycleViewModel)
+    implementation(AndroidX.lifecycleLiveData)
+    //implementation(AndroidX.lifecycleCommon)
+
+
+
+    //Modules
     implementation(project(Modules.core))
-    //implementation(project(Modules.coreUi))
+    implementation(project(Modules.coreUi))
     implementation(project(Modules.onboardingPresentation))
     implementation(project(Modules.onboardingDomain))
     implementation(project(Modules.trackerPresentation))
     implementation(project(Modules.trackerDomain))
     implementation(project(Modules.trackerData))
 
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+
+    //Testing
+    testImplementation(Testing.junit4)
+    testImplementation(Testing.junitAndroidExt)
+    testImplementation(Testing.truth)
+    testImplementation(Testing.coroutines)
+    testImplementation(Testing.turbine)
+    testImplementation(Testing.composeUiTest)
+    testImplementation(Testing.mockk)
+    testImplementation(Testing.mockWebServer)
+
+    androidTestImplementation(Testing.junit4)
+    androidTestImplementation(Testing.junitAndroidExt)
+    androidTestImplementation(Testing.truth)
+    androidTestImplementation(Testing.coroutines)
+    androidTestImplementation(Testing.turbine)
+    androidTestImplementation(Testing.composeUiTest)
+    androidTestImplementation(Testing.mockkAndroid)
+    androidTestImplementation(Testing.mockWebServer)
+    androidTestImplementation(Testing.hiltTesting)
+    kaptAndroidTest(DaggerHilt.hiltCompiler)
+    androidTestImplementation(Testing.testRunner)
 }

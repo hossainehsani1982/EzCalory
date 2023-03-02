@@ -8,7 +8,7 @@ object Compose {
     const val runtime = "androidx.compose.runtime:runtime:$composeVersion"
     private const val activityComposeVersion = "1.6.1"
     const val activityCompose = "androidx.activity:activity-compose:$activityComposeVersion"
-    const val composeCompilerVersion = "1.4.0-alpha02"
+    const val composeCompilerVersion = "1.4.3"
     const val compiler = "androidx.compose.compiler:compiler:$composeCompilerVersion"
 
 
