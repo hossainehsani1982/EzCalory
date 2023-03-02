@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.navigation.fragment.findNavController
 import com.hossain_ehs.core_ui.LocalSpacing
 import com.hossain_ehs.core.R
 import com.hossain_ehs.onboarding_presentation.components.ActionButton
@@ -16,7 +17,9 @@ import com.hossain_ehs.onboarding_presentation.components.ActionButton
 fun WelcomeScreen() {
     val spacing = LocalSpacing.current
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(spacing.spaceMedium),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = CenterHorizontally
     ) {
@@ -28,8 +31,11 @@ fun WelcomeScreen() {
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { /*TODO*/ },
+            onClick = {
+                WelcomeFragment.navi.value = true
+            },
             modifier = Modifier.align(CenterHorizontally)
              )
     }
 }
+

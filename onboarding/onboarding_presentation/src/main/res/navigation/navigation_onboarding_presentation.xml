@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/onboarding_presentation_nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/welcomeFragment2">
 
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/ageFragment"
+        android:name="com.hossain_ehs.onboarding_presentation.age.AgeFragment"
+        android:label="fragment_age"
+        tools:layout="@layout/fragment_age" />
+    <fragment
+        android:id="@+id/welcomeFragment2"
         android:name="com.hossain_ehs.onboarding_presentation.welcome.WelcomeFragment"
-        android:label="HomeFragment" />
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment2_to_ageFragment"
+            app:destination="@id/ageFragment" />
+    </fragment>
 </navigation>
