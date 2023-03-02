@@ -55,6 +55,9 @@ dependencies {
     implementation Google.material
     implementation AndroidX.constraintlayout
 
+    implementation AndroidX.navigationFragment
+    implementation AndroidX.navigationUi
+
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
 

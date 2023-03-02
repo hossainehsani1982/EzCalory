@@ -12,8 +12,8 @@ android {
 
 dependencies {
     "implementation"(project(Modules.core))
+    "implementation"(project(Modules.coreUi))
     "implementation"(project(Modules.onboardingDomain))
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+
 
 }
