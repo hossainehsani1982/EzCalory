@@ -8,8 +8,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentWelcomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     lateinit var binding : FragmentWelcomeBinding
     companion object  {
@@ -36,7 +37,7 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
 
 
     private fun navigate(){
-        val action = WelcomeFragmentDirections.actionWelcomeFragment2ToAgeFragment()
+        val action = WelcomeFragmentDirections.actionWelcomeFragment2ToGenderFragment()
         findNavController().navigate(action)
     }
 }

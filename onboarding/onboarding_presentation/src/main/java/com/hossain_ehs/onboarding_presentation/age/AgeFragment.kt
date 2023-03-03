@@ -29,13 +29,6 @@ class AgeFragment : Fragment(R.layout.fragment_age) {
                 }
             }
         }
-        val callback = object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                WelcomeFragment.navi.value = false
-                findNavController().popBackStack()
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(callback)
 
     }
 

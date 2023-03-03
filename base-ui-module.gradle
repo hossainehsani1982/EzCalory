@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'dagger.hilt.android.plugin'
+
 
 
 android {
@@ -22,6 +24,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion Compose.composeCompilerVersion
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -53,6 +56,17 @@ dependencies {
     implementation Compose.material
     implementation Compose.runtime
     implementation Compose.activityCompose
+    implementation Compose.hiltNavigationCompose
+
+    //fragment
+    implementation AndroidX.fragment
+    //lifecycle
+    implementation AndroidX.lifecycleProcess
+    implementation AndroidX.lifecycleViewModelStat
+    implementation AndroidX.lifecycleService
+    implementation AndroidX.lifecycleViewModel
+    implementation AndroidX.lifecycleLiveData
+
 
     implementation Google.material
     implementation AndroidX.constraintlayout
@@ -62,6 +76,8 @@ dependencies {
 
     kapt DaggerHilt.hiltCompiler
     implementation DaggerHilt.hiltAndroid
+    implementation DaggerHilt.hiltNavigationFragment
+    annotationProcessor DaggerHilt.hiltCompiler
 
     testImplementation Testing.junit4 
     testImplementation Testing.junitAndroidExt 

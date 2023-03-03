@@ -17,7 +17,16 @@
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
-            android:id="@+id/action_welcomeFragment2_to_ageFragment"
+            android:id="@+id/action_welcomeFragment2_to_genderFragment"
+            app:destination="@id/genderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genderFragment"
+        android:name="com.hossain_ehs.onboarding_presentation.gender.GenderFragment"
+        android:label="fragment_gender"
+        tools:layout="@layout/fragment_gender" >
+        <action
+            android:id="@+id/action_genderFragment_to_ageFragment"
             app:destination="@id/ageFragment" />
     </fragment>
 </navigation>

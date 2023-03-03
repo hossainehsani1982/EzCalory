@@ -25,6 +25,7 @@ android {
         }
     }
 
+
     composeOptions {
         kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
     }
@@ -49,6 +50,8 @@ dependencies {
     implementation(Google.material)
     implementation(AndroidX.constraintlayout)
 
+    //Fragment
+    implementation(AndroidX.fragment)
     //Coil
     implementation(Coil.coilCompose)
 
@@ -60,10 +63,13 @@ dependencies {
     implementation(Compose.material)
     implementation(Compose.runtime)
     implementation(Compose.activityCompose)
+    implementation(Compose.hiltNavigationCompose)
 
     //Dagger
     implementation(DaggerHilt.hiltAndroid)
     kapt(DaggerHilt.hiltCompiler)
+    implementation(DaggerHilt.hiltNavigationFragment)
+    annotationProcessor(DaggerHilt.hiltCompiler)
 
 
     //Room
