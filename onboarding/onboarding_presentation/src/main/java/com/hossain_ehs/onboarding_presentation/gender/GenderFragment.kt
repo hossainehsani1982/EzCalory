@@ -10,7 +10,6 @@ import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
 import com.hossain_ehs.core.util.UiEvents
 import com.hossain_ehs.onboarding_presentation.R
-import com.hossain_ehs.onboarding_presentation.age.AgeScreen
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentGenderBinding
 import com.hossain_ehs.onboarding_presentation.welcome.WelcomeFragment
 import dagger.hilt.android.AndroidEntryPoint

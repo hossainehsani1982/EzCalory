@@ -1,12 +1,9 @@
 package com.hossain_ehs.onboarding_presentation.gender
 
-import android.text.Layout.Alignment
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.magnifier
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment.Companion.BottomEnd
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
@@ -20,7 +17,6 @@ import com.hossain_ehs.core.domain.model.Gender
 import com.hossain_ehs.core_ui.LocalSpacing
 import com.hossain_ehs.onboarding_presentation.components.ActionButton
 import com.hossain_ehs.onboarding_presentation.components.SelectableButton
-import kotlinx.coroutines.flow.collect
 
 @Composable
 fun GenderScreen(

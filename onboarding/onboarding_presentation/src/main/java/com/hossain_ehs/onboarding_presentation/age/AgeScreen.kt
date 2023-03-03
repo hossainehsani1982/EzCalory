@@ -10,7 +10,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hossain_ehs.core_ui.LocalSpacing
-import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.components.ActionButton
 import com.hossain_ehs.onboarding_presentation.components.UnitTextField
 
@@ -43,12 +42,9 @@ fun AgeScreen(
                , unit = stringResource(id = com.hossain_ehs.core.R.string.years))
        }
 
-
        ActionButton(text = stringResource(
            id = com.hossain_ehs.core.R.string.next),
            onClick = viewModel::onNextClicked,
            modifier = Modifier.align(Alignment.BottomEnd))
    }
-
-
 }

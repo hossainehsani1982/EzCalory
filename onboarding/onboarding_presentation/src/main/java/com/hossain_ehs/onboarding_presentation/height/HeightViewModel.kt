@@ -1,4 +1,4 @@
-package com.hossain_ehs.onboarding_presentation.age
+package com.hossain_ehs.onboarding_presentation.height
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -16,32 +16,34 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AgeViewModel @Inject constructor(
+class HeightViewModel @Inject constructor(
     private val preferences: Preferences,
     private val filterDigitsUseCases: FilterDigitsUseCases
-):ViewModel() {
-    var age by mutableStateOf("20")
-         private set
-    private val _ageChannel = Channel<UiEvents>()
-    val ageChannel = _ageChannel.receiveAsFlow()
+) : ViewModel(){
 
-    fun onAgeEntered(age : String){
-        if (age.length <= 3){
-            this.age = filterDigitsUseCases.filterOutDigits(age)
+    var height by mutableStateOf("170")
+        private set
+    private val _heightChannel = Channel<UiEvents>()
+    val heightChannel = _heightChannel.receiveAsFlow()
+
+    fun onHeightEntered(height : String){
+        if (height.length <= 3){
+            this.height = filterDigitsUseCases.filterOutDigits(height)
         }
     }
     fun onNextClicked(){
         viewModelScope.launch {
-            val ageToInt = age.toIntOrNull() ?: kotlin.run {
-                UiEvents.ShowSnackBar(UiText
+            val heightToInt = height.toIntOrNull() ?: kotlin.run {
+                UiEvents.ShowSnackBar(
+                    UiText
                     .ResourceString(
-                        com.hossain_ehs.core.R.string.error_age_cant_be_empty
+                        com.hossain_ehs.core.R.string.error_height_cant_be_empty
                     )
                 )
                 return@launch
             }
-            preferences.saveAge(ageToInt)
-            _ageChannel.send(UiEvents.NavigateUp)
+            preferences.saveHeight(heightToInt)
+            _heightChannel.send(UiEvents.NavigateUp)
         }
     }
 

@@ -5,7 +5,9 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.hossain_ehs.core.data.shared_preferences.DefaultPreferences
 import com.hossain_ehs.core.domain.shared_preferences.Preferences
+import com.hossain_ehs.core.domain.use_cases.FilterDigitsUseCases
 import com.hossain_ehs.core.domain.use_cases.FilterOutDigits
+import com.hossain_ehs.core.domain.use_cases.FilterOutDigitsAndDot
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,7 +33,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCoreModuleUseCases() : FilterOutDigits {
-        return FilterOutDigits()
+    fun provideCoreModuleUseCases() : FilterDigitsUseCases {
+        return FilterDigitsUseCases(
+            filterOutDigits = FilterOutDigits(),
+            filterOutDigitsAndDot = FilterOutDigitsAndDot()
+        )
     }
 }

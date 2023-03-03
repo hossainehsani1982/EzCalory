@@ -1,4 +1,4 @@
-package com.hossain_ehs.onboarding_presentation.age
+package com.hossain_ehs.onboarding_presentation.weight
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -16,32 +16,34 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AgeViewModel @Inject constructor(
+class WeightViewModel @Inject constructor(
     private val preferences: Preferences,
     private val filterDigitsUseCases: FilterDigitsUseCases
-):ViewModel() {
-    var age by mutableStateOf("20")
-         private set
-    private val _ageChannel = Channel<UiEvents>()
-    val ageChannel = _ageChannel.receiveAsFlow()
+) : ViewModel(){
+    var weight by mutableStateOf("80.0")
+        private set
 
-    fun onAgeEntered(age : String){
-        if (age.length <= 3){
-            this.age = filterDigitsUseCases.filterOutDigits(age)
+    private val _weightChannel = Channel<UiEvents>()
+    val weightChannel = _weightChannel.receiveAsFlow()
+
+    fun onWeightEntered(weight : String){
+        if (weight.length <= 5){
+            this.weight = filterDigitsUseCases.filterOutDigitsAndDot(weight)
         }
     }
     fun onNextClicked(){
         viewModelScope.launch {
-            val ageToInt = age.toIntOrNull() ?: kotlin.run {
-                UiEvents.ShowSnackBar(UiText
+            val weightToFloat = weight.toFloatOrNull() ?: kotlin.run {
+                UiEvents.ShowSnackBar(
+                    UiText
                     .ResourceString(
-                        com.hossain_ehs.core.R.string.error_age_cant_be_empty
+                        com.hossain_ehs.core.R.string.error_weight_cant_be_empty
                     )
                 )
                 return@launch
             }
-            preferences.saveAge(ageToInt)
-            _ageChannel.send(UiEvents.NavigateUp)
+            preferences.saveWeight(weightToFloat)
+            _weightChannel.send(UiEvents.NavigateUp)
         }
     }
 

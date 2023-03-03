@@ -10,7 +10,11 @@
         android:id="@+id/ageFragment"
         android:name="com.hossain_ehs.onboarding_presentation.age.AgeFragment"
         android:label="fragment_age"
-        tools:layout="@layout/fragment_age" />
+        tools:layout="@layout/fragment_age" >
+        <action
+            android:id="@+id/action_ageFragment_to_heightFragment"
+            app:destination="@id/heightFragment" />
+    </fragment>
     <fragment
         android:id="@+id/welcomeFragment2"
         android:name="com.hossain_ehs.onboarding_presentation.welcome.WelcomeFragment"
@@ -29,4 +33,18 @@
             android:id="@+id/action_genderFragment_to_ageFragment"
             app:destination="@id/ageFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/heightFragment"
+        android:name="com.hossain_ehs.onboarding_presentation.height.HeightFragment"
+        android:label="fragment_height"
+        tools:layout="@layout/fragment_height" >
+        <action
+            android:id="@+id/action_heightFragment_to_weightFragment"
+            app:destination="@id/weightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weightFragment"
+        android:name="com.hossain_ehs.onboarding_presentation.weight.WeightFragment"
+        android:label="fragment_weight"
+        tools:layout="@layout/fragment_weight" />
 </navigation>
