@@ -46,5 +46,23 @@
         android:id="@+id/weightFragment"
         android:name="com.hossain_ehs.onboarding_presentation.weight.WeightFragment"
         android:label="fragment_weight"
-        tools:layout="@layout/fragment_weight" />
+        tools:layout="@layout/fragment_weight" >
+        <action
+            android:id="@+id/action_weightFragment_to_activityLevelFragment"
+            app:destination="@id/activityLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/activityLevelFragment"
+        android:name="com.hossain_ehs.onboarding_presentation.activity.ActivityLevelFragment"
+        android:label="fragment_activity"
+        tools:layout="@layout/fragment_activity" >
+        <action
+            android:id="@+id/action_activityLevelFragment_to_goalFragment"
+            app:destination="@id/goalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goalFragment"
+        android:name="com.hossain_ehs.onboarding_presentation.goal.GoalFragment"
+        android:label="fragment_goal"
+        tools:layout="@layout/fragment_goal" />
 </navigation>
