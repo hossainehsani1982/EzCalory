@@ -50,5 +50,4 @@ fun SelectableButton(
             color = if(isSelected) selectedTextColor else color,
         )
     }
-
 }

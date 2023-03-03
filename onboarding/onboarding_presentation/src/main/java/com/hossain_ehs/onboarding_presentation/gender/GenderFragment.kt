@@ -8,6 +8,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.navigation.fragment.findNavController
+import com.hossain_ehs.core.util.UiEvents
 import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.age.AgeScreen
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentGenderBinding
@@ -44,10 +45,11 @@ class GenderFragment : Fragment(R.layout.fragment_gender) {
     private fun subscribeToObservers(){
         genderViewModel.genderChannel.asLiveData().observe(viewLifecycleOwner){ events->
             when(events){
-                GenderEvents.Navigate -> {
+                UiEvents.NavigateUp -> {
                     val action = GenderFragmentDirections.actionGenderFragmentToAgeFragment()
                     findNavController().navigate(action)
                 }
+                is UiEvents.ShowSnackBar -> TODO()
             }
 
         }

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hossain_ehs.core.domain.model.Gender
 import com.hossain_ehs.core.domain.shared_preferences.Preferences
+import com.hossain_ehs.core.util.UiEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -17,7 +18,7 @@ import javax.inject.Inject
 class GenderViewModel @Inject constructor(
    private val preferences: Preferences
 ):ViewModel() {
- private val _genderChannel = Channel<GenderEvents>()
+ private val _genderChannel = Channel<UiEvents>()
 
     val genderChannel = _genderChannel.receiveAsFlow()
 
@@ -34,12 +35,8 @@ class GenderViewModel @Inject constructor(
     private fun navigate(){
         viewModelScope.launch {
             preferences.saveGender(selectedGender)
-            _genderChannel.send(GenderEvents.Navigate)
+            _genderChannel.send(UiEvents.NavigateUp)
         }
     }
 
-}
-
-sealed class GenderEvents(){
-    object Navigate : GenderEvents()
 }
