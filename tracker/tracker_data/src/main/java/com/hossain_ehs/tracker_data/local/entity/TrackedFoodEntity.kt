@@ -13,7 +13,7 @@ data class TrackedFoodEntity(
     val type : String,
     val amountInGr : Int,
     val dayOfMonth : Int,
-    val moth : Int,
+    val month : Int,
     val year : Int,
     val calories : Int,
     @PrimaryKey(autoGenerate = true) val id : Int? = null

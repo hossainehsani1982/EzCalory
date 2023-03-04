@@ -9,7 +9,6 @@ buildscript {
         classpath(Build.hiltAndroidGradlePlugin)
         classpath(Build.kotlinGradlePlugin)
         classpath(Build.navSafeArgs)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.21")
         //classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.21")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
