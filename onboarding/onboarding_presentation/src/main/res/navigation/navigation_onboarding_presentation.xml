@@ -64,5 +64,14 @@
         android:id="@+id/goalFragment"
         android:name="com.hossain_ehs.onboarding_presentation.goal.GoalFragment"
         android:label="fragment_goal"
-        tools:layout="@layout/fragment_goal" />
+        tools:layout="@layout/fragment_goal" >
+        <action
+            android:id="@+id/action_goalFragment_to_nutrientGoalFragment"
+            app:destination="@id/nutrientGoalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nutrientGoalFragment"
+        android:name="com.hossain_ehs.onboarding_presentation.nutrient_goal.NutrientGoalFragment"
+        android:label="fragment_nutrient_goal"
+        tools:layout="@layout/fragment_nutrient_goal" />
 </navigation>
