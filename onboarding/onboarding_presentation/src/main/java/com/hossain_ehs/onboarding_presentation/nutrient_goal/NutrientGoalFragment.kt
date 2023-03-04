@@ -2,16 +2,13 @@ package com.hossain_ehs.onboarding_presentation.nutrient_goal
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
 import com.google.android.material.snackbar.Snackbar
 import com.hossain_ehs.core.util.UiEvents
 import com.hossain_ehs.onboarding_presentation.R
-import com.hossain_ehs.onboarding_presentation.databinding.FragmentGoalBinding
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentNutrientGoalBinding
 import dagger.hilt.android.AndroidEntryPoint
 
