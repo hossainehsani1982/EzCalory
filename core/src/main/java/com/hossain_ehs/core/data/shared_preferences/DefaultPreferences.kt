@@ -75,7 +75,7 @@ class DefaultPreferences(
             height = sharedPreferences.getInt(Preferences.KEY_HEIGHT, -1),
             activityLevel = ActivityLevel.fromString(activityLevel ?: "medium"),
             goalType = GoalType.fromString(goalType ?: "keepWeight"),
-            carRatio = sharedPreferences.getFloat(Preferences.KEY_CARB_RATIO, -1f),
+            carbRatio = sharedPreferences.getFloat(Preferences.KEY_CARB_RATIO, -1f),
             proteinRatio = sharedPreferences.getFloat(Preferences.KEY_PROTEIN_RATIO, -1f),
             fatRatio = sharedPreferences.getFloat(Preferences.KEY_FAT_RATIO, -1f)
         )
