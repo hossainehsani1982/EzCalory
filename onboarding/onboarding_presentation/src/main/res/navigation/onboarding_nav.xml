@@ -2,19 +2,9 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/onboarding_presentation_nav_graph"
+    android:id="@+id/onboarding_nav"
     app:startDestination="@id/welcomeFragment2">
 
-
-    <fragment
-        android:id="@+id/ageFragment"
-        android:name="com.hossain_ehs.onboarding_presentation.age.AgeFragment"
-        android:label="fragment_age"
-        tools:layout="@layout/fragment_age" >
-        <action
-            android:id="@+id/action_ageFragment_to_heightFragment"
-            app:destination="@id/heightFragment" />
-    </fragment>
     <fragment
         android:id="@+id/welcomeFragment2"
         android:name="com.hossain_ehs.onboarding_presentation.welcome.WelcomeFragment"
@@ -23,6 +13,18 @@
         <action
             android:id="@+id/action_welcomeFragment2_to_genderFragment"
             app:destination="@id/genderFragment" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="example://onboarding" />
+    </fragment>
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.hossain_ehs.onboarding_presentation.age.AgeFragment"
+        android:label="fragment_age"
+        tools:layout="@layout/fragment_age" >
+        <action
+            android:id="@+id/action_ageFragment_to_heightFragment"
+            app:destination="@id/heightFragment" />
     </fragment>
     <fragment
         android:id="@+id/genderFragment"
@@ -73,5 +75,8 @@
         android:id="@+id/nutrientGoalFragment"
         android:name="com.hossain_ehs.onboarding_presentation.nutrient_goal.NutrientGoalFragment"
         android:label="fragment_nutrient_goal"
-        tools:layout="@layout/fragment_nutrient_goal" />
+        tools:layout="@layout/fragment_nutrient_goal" >
+    </fragment>
+
+
 </navigation>

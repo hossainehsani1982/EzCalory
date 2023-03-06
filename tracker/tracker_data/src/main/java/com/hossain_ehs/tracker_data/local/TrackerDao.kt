@@ -12,10 +12,7 @@ interface TrackerDao {
     @Delete
     suspend fun deleteTrackedFood(trackedFoodEntity: TrackedFoodEntity)
 
-    @Query("""
-        SELECT *
-        FROM trackedfoodentity
-        WHERE dayOfMonth = :day AND moth = :month AND year= :year
-    """)
-    fun getFoodsBtDate(day : Int, month : Int, year : Int) : Flow<List<TrackedFoodEntity>>
+    @Query("SELECT * FROM trackedfoodentity WHERE dayOfMonth = :day AND month = :month AND year= :year")
+
+    fun getFoodsBtDate(day: Int, month: Int, year: Int): Flow<List<TrackedFoodEntity>>
 }

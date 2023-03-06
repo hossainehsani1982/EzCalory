@@ -6,8 +6,10 @@ import android.view.View
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.hossain_ehs.core.util.UiEvents
+import com.hossain_ehs.core_ui.*
 import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentNutrientGoalBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,7 +41,10 @@ class NutrientGoalFragment : Fragment(R.layout.fragment_nutrient_goal) {
             .observe(viewLifecycleOwner) { events ->
                 when (events) {
                     UiEvents.NavigateUp -> {
-                        TODO()
+                        findNavController()
+                            .navigate(NavigationMainDirections
+                                .actionGlobalTrackerNav())
+
                     }
                     is UiEvents.ShowSnackBar -> {
                         Snackbar.make(

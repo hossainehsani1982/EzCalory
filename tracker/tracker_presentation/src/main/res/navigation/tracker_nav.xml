@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tracker_nav"
+    app:startDestination="@id/trackerOverViewFragment">
+
+    <fragment
+        android:id="@+id/trackerOverViewFragment"
+        android:name="com.hossain_ehs.tracker_presentation.tracker_overview.TrackerOverViewFragment"
+        android:label="fragment_tracker_over_view"
+        tools:layout="@layout/fragment_tracker_over_view" />
+    <deepLink
+        android:id="@+id/deepLink"
+        app:uri="hossain//tracker" />
+</navigation>

@@ -5,14 +5,17 @@ import com.hossain_ehs.tracker_domain.repository.TrackerRepository
 import com.hossain_ehs.tracker_domain.use_case.*
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
+
 
 
 @Module
-@Singleton
+@InstallIn(ViewModelComponent::class)
 object TrackerDomainModule {
     @Provides
-    @Singleton
+    @ViewModelScoped
     fun provideTrackerUseCases(
         repository: TrackerRepository,
         preferences: Preferences
