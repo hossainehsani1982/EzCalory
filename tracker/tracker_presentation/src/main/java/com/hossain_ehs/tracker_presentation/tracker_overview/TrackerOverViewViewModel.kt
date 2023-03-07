@@ -22,26 +22,26 @@ import javax.inject.Inject
 class TrackerOverViewViewModel @Inject constructor(
     private val preferences: Preferences,
     private val trackerUseCases: TrackerUseCases,
-) : ViewModel(){
-        init {
-            preferences.saveShouldShowOnboarding(false)
-        }
+) : ViewModel() {
+    init {
+        preferences.saveShouldShowOnboarding(false)
+    }
 
     var state by mutableStateOf(TrackerOverViewState())
-    private set
+        private set
 
-    private var getFoodsForDateJob : Job? = null
+    private var getFoodsForDateJob: Job? = null
 
     private val _trackerOverViewChannel = Channel<UiEvents>()
     val trackerOverViewChannel = _trackerOverViewChannel.receiveAsFlow()
 
-    fun onEvent(event: TrackerOverViewEvent){
-        when (event){
+    fun onEvent(event: TrackerOverViewEvent) {
+        when (event) {
             is TrackerOverViewEvent.OnAddFoodClicked -> {
                 viewModelScope.launch {
                     _trackerOverViewChannel.send(
                         UiEvents.NavigateToSearchFood(
-                            mealType = event.meal.mealType.name ,
+                            mealType = event.meal.mealType.name,
                             day = state.date.dayOfMonth,
                             month = state.date.monthValue,
                             year = state.date.year
@@ -61,7 +61,7 @@ class TrackerOverViewViewModel @Inject constructor(
                 )
                 refreshFoodsAfter()
             }
-            TrackerOverViewEvent.OnPreviousDayClicked ->  {
+            TrackerOverViewEvent.OnPreviousDayClicked -> {
                 state = state.copy(
                     date = state.date.minusDays(1)
                 )
@@ -70,22 +70,23 @@ class TrackerOverViewViewModel @Inject constructor(
             is TrackerOverViewEvent.OnToggleMealClicked -> {
                 state = state.copy(
                     meal = state.meal.map {
-                        if(it.name == event.meal.name){
+                        if (it.name == event.meal.name) {
                             it.copy(
                                 isExpanded = !it.isExpanded
                             )
-                        }else it
+                        } else it
                     }
                 )
             }
         }
     }
-    private fun refreshFoodsAfter(){
+
+    private fun refreshFoodsAfter() {
         getFoodsForDateJob?.cancel()
 
-        getFoodsForDateJob =  trackerUseCases
+        getFoodsForDateJob = trackerUseCases
             .getFoodsForDate(state.date)
-            .onEach {foods ->
+            .onEach { foods ->
                 //on each list received from data base
                 val nutrientResult = trackerUseCases.calculateMealNutrients(foods)
                 state = state.copy(
