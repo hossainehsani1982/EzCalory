@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_welcomeFragment2_to_genderFragment"
             app:destination="@id/genderFragment" />
-        <deepLink
-            android:id="@+id/deepLink"
-            app:uri="example://onboarding" />
     </fragment>
     <fragment
         android:id="@+id/ageFragment"

@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentWelcomeBinding
+import com.plcoding.calorytracker.ui.theme.MyAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,7 +24,10 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
             homePageComposeView.apply {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
                 setContent{
-                    WelcomeScreen()
+                    MyAppTheme{
+                        WelcomeScreen()
+                    }
+
                 }
             }
         }

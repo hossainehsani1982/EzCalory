@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_main"
     app:startDestination="@id/onboarding_nav">
@@ -7,10 +8,4 @@
     <include app:graph="@navigation/tracker_nav" />
     <include app:graph="@navigation/onboarding_nav" />
 
-    <action
-        android:id="@+id/action_global_onboarding_nav"
-        app:destination="@id/onboarding_nav" />
-    <action
-        android:id="@+id/action_global_tracker_nav"
-        app:destination="@id/tracker_nav" />
 </navigation>

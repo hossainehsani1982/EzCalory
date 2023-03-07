@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CaloryTrackerPrep</string>
     <string name="error_unknown">Unknown error</string>
     <string name="welcome_text">Hello! Let\'s find out more about you :)</string>
@@ -53,9 +53,11 @@
     <string name="gain">Gain</string>
     <string name="keep">Keep</string>
     <string name="lose">Lose</string>
+    <string name="deep_link_uri" translatable="false">myProject://com.hossain_ehs.mmExpl/tracker/tracker_presentation</string>
     <string name="lose_keep_or_gain_weight">Do you want to lose, keep or gain weight?</string>
     <string name="whats_your_activity_level">What\'s your activity level?</string>
     <string name="error_not_100_percent">The values must add up to 100%</string>
     <string name="your_goal">Your goal:</string>
     <string name="delete">Delete</string>
+
 </resources>

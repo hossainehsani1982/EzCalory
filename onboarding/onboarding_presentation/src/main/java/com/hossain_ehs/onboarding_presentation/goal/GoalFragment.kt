@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.hossain_ehs.core.util.UiEvents
 import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentGoalBinding
+import com.plcoding.calorytracker.ui.theme.MyAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -28,7 +29,9 @@ class GoalFragment : Fragment(R.layout.fragment_goal) {
             goalPageComposeView.apply {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
                 setContent {
-                    GoalScreen()
+                    MyAppTheme {
+                        GoalScreen()
+                    }
                 }
             }
         }
@@ -42,6 +45,7 @@ class GoalFragment : Fragment(R.layout.fragment_goal) {
                 findNavController().navigate(action)
                 }
                 is UiEvents.ShowSnackBar -> Unit
+                else -> Unit
             }
         }
     }

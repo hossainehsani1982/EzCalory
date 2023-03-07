@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 apply{
-    from("$rootDir/base-module.gradle")
+    from("$rootDir/base-ui-module.gradle")
 }
 android {
     namespace = "com.hossain_ehs.tracker_presentation"

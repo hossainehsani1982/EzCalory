@@ -44,6 +44,7 @@ class CalculateMealNutrients(
                     mealType = type
                 )
             }
+
         val totalCarbs = allNutrients.values.sumOf { it.carbs }
         val totalProteins = allNutrients.values.sumOf { it.protein }
         val totalFat = allNutrients.values.sumOf { it.fat }

@@ -12,6 +12,7 @@ import com.hossain_ehs.core.util.UiEvents
 import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentWeightBinding
 import com.hossain_ehs.onboarding_presentation.welcome.WelcomeFragmentDirections
+import com.plcoding.calorytracker.ui.theme.MyAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +30,9 @@ class WeightFragment : Fragment(R.layout.fragment_weight) {
             weightPageComposeView.apply {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
                 setContent {
-                    WeightScreen()
+                    MyAppTheme {
+                        WeightScreen()
+                    }
                 }
             }
         }
@@ -49,6 +52,7 @@ class WeightFragment : Fragment(R.layout.fragment_weight) {
                         Snackbar.LENGTH_LONG
                     ).show()
                 }
+                else -> Unit
             }
         }
     }

@@ -11,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.hossain_ehs.core.util.UiEvents
 import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentAgeBinding
+import com.plcoding.calorytracker.ui.theme.MyAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +28,9 @@ class AgeFragment : Fragment(R.layout.fragment_age) {
             agePageComposeView.apply {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
                 setContent{
-                    AgeScreen()
+                    MyAppTheme {
+                        AgeScreen()
+                    }
                 }
             }
         }
@@ -45,6 +48,7 @@ class AgeFragment : Fragment(R.layout.fragment_age) {
                        ,events.message.asString(requireContext()),
                        Snackbar.LENGTH_LONG).show()
                 }
+                else -> Unit
             }
         }
     }

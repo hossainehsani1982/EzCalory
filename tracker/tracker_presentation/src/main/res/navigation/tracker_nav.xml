@@ -9,8 +9,29 @@
         android:id="@+id/trackerOverViewFragment"
         android:name="com.hossain_ehs.tracker_presentation.tracker_overview.TrackerOverViewFragment"
         android:label="fragment_tracker_over_view"
-        tools:layout="@layout/fragment_tracker_over_view" />
-    <deepLink
-        android:id="@+id/deepLink"
-        app:uri="hossain//tracker" />
+        tools:layout="@layout/fragment_tracker_over_view">
+        <deepLink app:uri="@string/deep_link_uri" />
+        <action
+            android:id="@+id/action_trackerOverViewFragment_to_searchFoodFragment"
+            app:destination="@id/searchFoodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFoodFragment"
+        android:name="com.hossain_ehs.tracker_presentation.tracker_search_food.SearchFoodFragment"
+        android:label="fragment_search_food"
+        tools:layout="@layout/fragment_search_food" >
+        <argument
+            android:name="meal_type"
+            app:argType="string" />
+        <argument
+            android:name="day"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+        <argument android:name="year"
+            app:argType="integer" />
+    </fragment>
+
+
 </navigation>
