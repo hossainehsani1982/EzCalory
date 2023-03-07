@@ -11,7 +11,6 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.hossain_ehs.core.util.UiEvents
-import com.hossain_ehs.core_ui.*
 import com.hossain_ehs.onboarding_presentation.R
 import com.hossain_ehs.onboarding_presentation.databinding.FragmentNutrientGoalBinding
 import com.plcoding.calorytracker.ui.theme.MyAppTheme
