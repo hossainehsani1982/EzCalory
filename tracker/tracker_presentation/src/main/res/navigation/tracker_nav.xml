@@ -21,7 +21,7 @@
         android:label="fragment_search_food"
         tools:layout="@layout/fragment_search_food" >
         <argument
-            android:name="meal_type"
+            android:name="meal_name"
             app:argType="string" />
         <argument
             android:name="day"

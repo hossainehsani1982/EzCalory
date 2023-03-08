@@ -1,5 +1,6 @@
 package com.hossain_ehs.tracker_presentation.tracker_overview
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -17,10 +18,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class TrackerOverViewFragment : Fragment(R.layout.fragment_tracker_over_view) {
     private lateinit var binding : FragmentTrackerOverViewBinding
     private val trackerOverViewViewModel : TrackerOverViewViewModel by viewModels()
+    companion object{
+         lateinit var mcontext : Context
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentTrackerOverViewBinding.bind(view)
         subscribeToObservers()
+        mcontext = requireContext()
         binding.apply {
             trackerOverviewPageComposeView.apply {
                 setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
@@ -44,7 +49,7 @@ class TrackerOverViewFragment : Fragment(R.layout.fragment_tracker_over_view) {
                     is UiEvents.NavigateToSearchFood -> {
                         val action = TrackerOverViewFragmentDirections
                             .actionTrackerOverViewFragmentToSearchFoodFragment(
-                                mealType = events.mealType,
+                                mealName = events.mealType,
                                 day = events.day,
                                 month = events.month ,
                                 year = events.year

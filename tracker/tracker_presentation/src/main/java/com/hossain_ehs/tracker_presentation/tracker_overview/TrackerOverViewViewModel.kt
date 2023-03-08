@@ -1,5 +1,6 @@
 package com.hossain_ehs.tracker_presentation.tracker_overview
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -74,7 +75,10 @@ class TrackerOverViewViewModel @Inject constructor(
                             it.copy(
                                 isExpanded = !it.isExpanded
                             )
-                        } else it
+                        }else if (it.isExpanded) {
+                            it.copy(isExpanded = false)
+                        }
+                        else it
                     }
                 )
             }
