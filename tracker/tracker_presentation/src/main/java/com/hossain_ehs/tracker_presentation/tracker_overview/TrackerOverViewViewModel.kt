@@ -24,10 +24,6 @@ class TrackerOverViewViewModel @Inject constructor(
     private val preferences: Preferences,
     private val trackerUseCases: TrackerUseCases,
 ) : ViewModel() {
-    init {
-        preferences.saveShouldShowOnboarding(false)
-    }
-
     var state by mutableStateOf(TrackerOverViewState())
         private set
 
@@ -35,6 +31,13 @@ class TrackerOverViewViewModel @Inject constructor(
 
     private val _trackerOverViewChannel = Channel<UiEvents>()
     val trackerOverViewChannel = _trackerOverViewChannel.receiveAsFlow()
+
+    init {
+        refreshFoodsAfter()
+        preferences.saveShouldShowOnboarding(false)
+    }
+
+
 
     fun onEvent(event: TrackerOverViewEvent) {
         when (event) {
@@ -53,8 +56,8 @@ class TrackerOverViewViewModel @Inject constructor(
             is TrackerOverViewEvent.OnDeleteTrackedFoodClicked -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteTrackedFood(event.trackedFood)
-                    refreshFoodsAfter()
                 }
+                refreshFoodsAfter()
             }
             TrackerOverViewEvent.OnNextDayClicked -> {
                 state = state.copy(

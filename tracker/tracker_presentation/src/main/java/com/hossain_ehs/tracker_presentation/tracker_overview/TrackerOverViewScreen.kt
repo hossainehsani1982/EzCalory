@@ -9,9 +9,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hossain_ehs.core_ui.LocalSpacing
 import androidx.compose.foundation.layout.*
+import androidx.compose.ui.tooling.preview.Preview
 import com.hossain_ehs.core.R
 import com.hossain_ehs.tracker_presentation.tracker_overview.components.*
-
 @Composable
 fun TrackerOverViewScreen(
     viewModel: TrackerOverViewViewModel = hiltViewModel()

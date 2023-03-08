@@ -16,6 +16,7 @@ fun TrackedFoodEntity.toTrackedFood(): TrackedFood {
         amountInGr = amountInGr,
         date = LocalDate.of(year, month, dayOfMonth),
         calories = calories,
+        id = id
     )
 }
 

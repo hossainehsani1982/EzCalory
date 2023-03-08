@@ -31,6 +31,9 @@
             app:argType="integer" />
         <argument android:name="year"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_searchFoodFragment_to_trackerOverViewFragment"
+            app:destination="@id/trackerOverViewFragment" />
     </fragment>
 
 
